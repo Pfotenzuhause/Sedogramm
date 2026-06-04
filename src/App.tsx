@@ -27,6 +27,7 @@ import {
   UtensilsCrossed
 } from 'lucide-react';
 import { useState, useMemo, FormEvent } from 'react';
+import AppleScaleShowcase from './components/AppleScaleShowcase';
 
 // Contact & Inquiry Modal 
 const ContactModal = ({ 
@@ -103,7 +104,7 @@ const ContactModal = ({
                 </div>
                 <h3 className="text-2xl font-black text-zinc-950 mb-3">Anfrage übermittelt!</h3>
                 <p className="text-zinc-600 text-sm max-w-sm mx-auto mb-6 leading-relaxed">
-                  Vielen Dank! Ihre Kalkulation wurde angehängt. Gründer <strong className="text-zinc-900">Alaattin Demir</strong> wird sich persönlich bei Ihnen unter <span className="text-[#DE8E38] font-bold">{email || "Ihrer E-Mail"}</span> melden.
+                  Vielen Dank! Ihre Kalkulation wurde angehängt. Gründer <strong className="text-zinc-900">Alaattin Demir</strong> wird sich persönlich bei Ihnen unter <span className="text-zinc-900 font-bold">{email || "Ihrer E-Mail"}</span> melden.
                 </p>
                 <button 
                   onClick={() => {
@@ -124,7 +125,7 @@ const ContactModal = ({
                   <X className="w-4 h-4 text-zinc-650" />
                 </button>
                 <div className="mb-6">
-                  <span className="text-[10px] uppercase tracking-widest text-[#DE8E38] font-black">SedoGramm Systems</span>
+                  <span className="text-[10px] uppercase tracking-widest text-zinc-500 font-black">SedoGramm Systems</span>
                   <h3 className="text-2xl font-black text-zinc-950 leading-tight mt-1">SedoGramm anfordern</h3>
                   <p className="text-zinc-500 text-xs mt-1">Starten Sie jetzt die Marge-Revolution in Ihrem Gastro-Betrieb.</p>
                 </div>
@@ -138,7 +139,7 @@ const ContactModal = ({
                       required 
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 focus:border-[#DE8E38] focus:bg-white outline-none font-bold text-sm text-zinc-900 transition-all placeholder:text-zinc-400" 
+                      className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 focus:border-zinc-950 focus:bg-white outline-none font-bold text-sm text-zinc-900 transition-all placeholder:text-zinc-400" 
                     />
                   </div>
                   <div>
@@ -149,7 +150,7 @@ const ContactModal = ({
                       required 
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 focus:border-[#DE8E38] focus:bg-white outline-none font-bold text-sm text-zinc-900 transition-all placeholder:text-zinc-400" 
+                      className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 focus:border-zinc-950 focus:bg-white outline-none font-bold text-sm text-zinc-900 transition-all placeholder:text-zinc-400" 
                     />
                   </div>
                   <div>
@@ -159,7 +160,7 @@ const ContactModal = ({
                       placeholder="z.B. +49 176 1234567"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 focus:border-[#DE8E38] focus:bg-white outline-none font-bold text-sm text-zinc-900 transition-all placeholder:text-zinc-400" 
+                      className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 focus:border-zinc-950 focus:bg-white outline-none font-bold text-sm text-zinc-900 transition-all placeholder:text-zinc-400" 
                     />
                   </div>
                   <div>
@@ -169,12 +170,12 @@ const ContactModal = ({
                       rows={2} 
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 focus:border-[#DE8E38] focus:bg-white outline-none font-bold text-sm text-zinc-900 resize-none transition-all placeholder:text-zinc-400" 
+                      className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 focus:border-zinc-950 focus:bg-white outline-none font-bold text-sm text-zinc-900 resize-none transition-all placeholder:text-zinc-400" 
                     />
                   </div>
                   
                   {defaultInquiryData && (
-                    <div className="bg-amber-50/70 border border-amber-200/40 rounded-xl p-3 text-[11px] text-amber-800 font-medium font-sans">
+                    <div className="bg-zinc-100 border border-zinc-200 rounded-xl p-3 text-[11px] text-zinc-850 font-semibold font-sans">
                       ⚡ <strong>Angehängte Live-Kalkulation:</strong><br />
                       Mittelwert: <strong>{defaultInquiryData.kebabsPerDay} Portionen/Tag</strong> mit <strong>+{defaultInquiryData.weightOffset}g Überportion</strong>. Gespartes Potenzial: <strong className="text-emerald-700">{new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(defaultInquiryData.yearlySavings)} / Jahr</strong>.
                     </div>
@@ -183,7 +184,7 @@ const ContactModal = ({
                   <button 
                     type="submit" 
                     disabled={loading}
-                    className="w-full cursor-pointer bg-zinc-950 hover:bg-[#DE8E38] text-white py-4 rounded-xl font-black text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                    className="w-full cursor-pointer bg-zinc-950 hover:bg-zinc-900 text-white py-4 rounded-xl font-black text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-2 disabled:opacity-50"
                   >
                     {loading ? "Daten werden gesendet..." : "Kostenloses Angebot anfordern"} <Send className="w-3.5 h-3.5 text-white" />
                   </button>
@@ -221,7 +222,7 @@ const Navbar = ({ onOpenContact }: { onOpenContact: () => void }) => {
             <Scale className="w-5 h-5 text-white" />
           </div>
           <span className="text-xl font-black tracking-tight text-zinc-950">
-            SEDO<span className="text-[#DE8E38]">GRAMM</span>
+            SEDO<span className="text-zinc-500">GRAMM</span>
           </span>
         </div>
 
@@ -239,7 +240,7 @@ const Navbar = ({ onOpenContact }: { onOpenContact: () => void }) => {
         <div className="hidden md:flex items-center">
           <button 
             onClick={onOpenContact}
-            className="bg-zinc-950 hover:bg-[#DE8E38] text-white text-[11px] font-black uppercase tracking-wider px-5 py-3 rounded-lg transition-colors cursor-pointer"
+            className="bg-zinc-950 hover:bg-zinc-850 text-white text-[11px] font-black uppercase tracking-wider px-5 py-3 rounded-lg transition-colors cursor-pointer border border-zinc-900"
           >
             Angebot anfordern
           </button>
@@ -289,7 +290,7 @@ const Hero = ({ onOpenContact }: { onOpenContact: () => void }) => {
     <section className="relative pt-32 md:pt-44 pb-20 md:pb-28 overflow-hidden bg-white">
       {/* Absolute stainless aesthetic background grids */}
       <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30" />
-      <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-amber-500/[0.03] rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-zinc-200/50 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute -left-10 top-1/3 w-[300px] h-[300px] bg-zinc-100 rounded-full blur-[80px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
@@ -298,9 +299,9 @@ const Hero = ({ onOpenContact }: { onOpenContact: () => void }) => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-50 border border-zinc-200 mb-6 text-[11px] font-bold text-[#DE8E38] uppercase tracking-wider"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 border border-zinc-300 mb-6 text-[11px] font-extrabold text-zinc-900 uppercase tracking-wider shadow-2xs"
         >
-          <Sparkle className="w-3 h-3 text-[#DE8E38]" /> INDUSTRIELLE PRÄZISION FÜR DIE GASTRONOMIE
+          <Sparkle className="w-3 h-3 text-zinc-650" /> INDUSTRIELLE PRÄZISION FÜR DIE GASTRONOMIE
         </motion.div>
 
         {/* Main Title - Apple style */}
@@ -332,7 +333,7 @@ const Hero = ({ onOpenContact }: { onOpenContact: () => void }) => {
         >
           <button 
             onClick={onOpenContact}
-            className="w-full sm:w-auto bg-zinc-950 hover:bg-[#DE8E38] text-white px-8 py-4.5 rounded-xl text-xs font-black uppercase tracking-widest transition-colors shadow-lg active:scale-98 cursor-pointer"
+            className="w-full sm:w-auto bg-zinc-950 hover:bg-zinc-850 text-white px-8 py-4.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all shadow-lg active:scale-98 cursor-pointer border border-zinc-900"
           >
             Angebot anfordern
           </button>
@@ -349,7 +350,7 @@ const Hero = ({ onOpenContact }: { onOpenContact: () => void }) => {
           initial={{ opacity: 0, scale: 0.98, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-          className="relative max-w-4xl mx-auto mt-16 md:mt-20 border border-zinc-200 rounded-[2rem] p-4 bg-zinc-50/50 shadow-2xl overflow-hidden"
+          className="relative max-w-7xl mx-auto mt-16 md:mt-20 border border-zinc-200 rounded-[2rem] md:rounded-[2.5rem] p-4 md:p-6 bg-zinc-50/50 shadow-2xl overflow-hidden"
         >
           {/* Top header representing real industrial steel device display casing */}
           <div className="absolute top-4 left-6 flex items-center gap-1.5 z-20">
@@ -364,37 +365,37 @@ const Hero = ({ onOpenContact }: { onOpenContact: () => void }) => {
               className="w-full h-full object-cover brightness-100 contrast-105"
             />
             {/* Ambient gradients */}
-            <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-85" />
             <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-transparent" />
-            
-            {/* Interactive Dynamic Weight Readout overlaid on scale image to show state change */}
-            <motion.div 
-              animate={{ y: [0, -4, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute bottom-6 left-6 right-6 md:left-10 md:right-10 bg-white/95 border border-zinc-200/90 rounded-2xl p-4 md:p-6 shadow-[0_20px_40px_rgba(0,0,0,0.08)] backdrop-blur-md flex flex-col md:flex-row items-center justify-between text-left gap-4"
-            >
-              <div>
-                <span className="text-[9px] uppercase tracking-[0.2em] text-zinc-500 font-black font-mono">AKTUELLER MESSWERT (GERADE AUFGELEGT)</span>
-                <div className="flex items-baseline gap-1 mt-0.5">
-                  <span className="text-3xl md:text-4xl font-mono font-black text-zinc-900 tracking-tight">120.0</span>
-                  <span className="text-lg md:text-xl font-mono text-[#DE8E38] font-bold">g</span>
-                </div>
-              </div>
-              <div className="h-px md:h-10 w-full md:w-px bg-zinc-200" />
-              <div className="text-center md:text-left">
-                <span className="text-[9px] uppercase tracking-widest text-[#DE8E38] font-black">KALKULATIONS-ZUSTAND</span>
-                <p className="text-xs font-black text-emerald-600 mt-0.5 uppercase tracking-wide">✓ 100% Perfekte Marge gesichert</p>
-              </div>
-              <div>
-                <button 
-                  onClick={onOpenContact} 
-                  className="bg-zinc-950 text-white font-black text-[10px] uppercase tracking-wider py-2.5 px-4 rounded-lg hover:bg-[#DE8E38] transition-colors"
-                >
-                  Live testen
-                </button>
-              </div>
-            </motion.div>
           </div>
+          
+          {/* Interactive Dynamic Weight Readout overlaid on scale image to show state change */}
+          <motion.div 
+            animate={{ y: [0, -4, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+            className="md:absolute md:bottom-10 md:left-10 md:right-10 bg-white/95 border border-zinc-200/90 rounded-2xl p-4 md:p-6 shadow-[0_20px_40px_rgba(0,0,0,0.08)] backdrop-blur-md flex flex-col md:flex-row items-center justify-between text-left gap-4 mt-6 md:mt-0 relative z-10"
+          >
+            <div>
+              <span className="text-[9px] uppercase tracking-[0.2em] text-zinc-500 font-black font-mono">AKTUELLER MESSWERT (GERADE AUFGELEGT)</span>
+              <div className="flex items-baseline gap-1 mt-0.5">
+                <span className="text-3xl md:text-4xl font-mono font-black text-zinc-900 tracking-tight">120.0</span>
+                <span className="text-lg md:text-xl font-mono text-zinc-500 font-bold">g</span>
+              </div>
+            </div>
+            <div className="h-px md:h-10 w-full md:w-px bg-zinc-200" />
+            <div className="text-center md:text-left font-sans">
+              <span className="text-[9px] uppercase tracking-widest text-zinc-500 font-black">KALKULATIONS-ZUSTAND</span>
+              <p className="text-xs font-black text-emerald-600 mt-0.5 uppercase tracking-wide">✓ 100% Perfekte Marge gesichert</p>
+            </div>
+            <div>
+              <button 
+                onClick={onOpenContact} 
+                className="bg-zinc-950 text-white font-black text-[10px] uppercase tracking-wider py-2.5 px-6 rounded-lg hover:bg-zinc-800 transition-colors w-full md:w-auto"
+              >
+                Live testen
+              </button>
+            </div>
+          </motion.div>
         </motion.div>
 
         {/* Little proof line */}
@@ -413,7 +414,7 @@ const Hero = ({ onOpenContact }: { onOpenContact: () => void }) => {
 // Section: "Die Problematik" - Contrast Section focusing on Silent Loss
 const IndustryProblem = () => {
   return (
-    <section id="realitaet" className="py-24 bg-zinc-50 border-t border-b border-zinc-150">
+    <section id="realitaet" className="scroll-mt-24 md:scroll-mt-28 py-24 bg-zinc-50 border-t border-b border-zinc-150">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           
@@ -475,8 +476,8 @@ const IndustryProblem = () => {
                   </div>
                 </div>
 
-                <div className="p-5 bg-[#FFFDF9] border border-amber-300/40 rounded-xl">
-                  <span className="text-[10px] uppercase tracking-wider text-[#DE8E38] font-black block">Die traurige Realität über das Jahr</span>
+                <div className="p-5 bg-zinc-50 border border-zinc-200 rounded-xl">
+                  <span className="text-[10px] uppercase tracking-wider text-zinc-550 font-extrabold block">Die traurige Realität über das Jahr</span>
                   <p className="text-xl md:text-2xl font-black text-rose-600 tracking-tight font-mono mt-1">Over 27.000 € Verlust</p>
                   <p className="text-xs text-zinc-500 font-semibold mt-1">Geld, das Sie unbemerkt wegschneiden, anstatt es als Gewinn einzubehalten.</p>
                 </div>
@@ -525,12 +526,12 @@ const StripeTechnicalSolution = () => {
   ];
 
   return (
-    <section id="loesung" className="py-24 bg-white relative">
+    <section id="loesung" className="scroll-mt-24 md:scroll-mt-28 py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Apple Style text intro */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs uppercase tracking-widest text-[#DE8E38] font-black">INDUSTRIEDESIGN UND INTELLIGENZ</span>
+          <span className="text-xs uppercase tracking-widest text-zinc-500 font-extrabold font-mono">INDUSTRIEDESIGN UND INTELLIGENZ</span>
           <h2 className="text-3xl md:text-5xl font-black text-zinc-950 mt-1 mb-4 leading-tight">
             Präzision bis ins letzte Gramm.
           </h2>
@@ -544,11 +545,11 @@ const StripeTechnicalSolution = () => {
           {features.map((f, idx) => (
             <div 
               key={f.id}
-              className="bg-zinc-50 hover:bg-zinc-50 border border-zinc-200 rounded-[2rem] p-8 text-left transition-all hover:border-[#DE8E38]/30 flex flex-col justify-between group"
+              className="bg-zinc-50 hover:bg-zinc-50 border border-zinc-200 rounded-[2rem] p-8 text-left transition-all hover:border-zinc-400 flex flex-col justify-between group"
             >
               <div>
                 <div className="flex justify-between items-center mb-6">
-                  <span className="text-[10px] uppercase font-black tracking-widest text-[#DE8E38] bg-[#DE8E38]/5 px-3 py-1 rounded-full">{f.tag}</span>
+                  <span className="text-[10px] uppercase font-black tracking-widest text-zinc-800 bg-zinc-200/60 px-3 py-1 rounded-full">{f.tag}</span>
                   <span className="text-xs font-mono font-black text-zinc-300">0{idx + 1}</span>
                 </div>
                 <h3 className="text-2xl font-black text-zinc-950 tracking-tight">{f.title}</h3>
@@ -565,14 +566,14 @@ const StripeTechnicalSolution = () => {
                 
                 {f.id === 'sensor' && (
                   <div className="pt-3 flex justify-between items-center">
-                    <span className="text-xs font-extrabold text-[#DE8E38]">Drucksensor-Feedback</span>
+                    <span className="text-xs font-extrabold text-zinc-900">Drucksensor-Feedback</span>
                     <span className="text-xs font-bold text-zinc-900 font-mono">0.05 Sek Reaktionszeit</span>
                   </div>
                 )}
                 {f.id === 'display' && (
                   <div className="pt-3 flex justify-between items-center">
                     <span className="text-xs font-extrabold text-zinc-800">Spiegelanzeige Kontrast</span>
-                    <span className="text-xs font-bold text-[#DE8E38] font-mono">98% Blendfrei</span>
+                    <span className="text-xs font-bold text-zinc-900 font-mono">98% Blendfrei</span>
                   </div>
                 )}
                 {f.id === 'fettwanne' && (
@@ -619,11 +620,11 @@ const PathRoboticsHowItWorks = () => {
   ];
 
   return (
-    <section id="wie-es-funktioniert" className="py-24 bg-zinc-50 border-t border-b border-zinc-200">
+    <section id="wie-es-funktioniert" className="scroll-mt-24 md:scroll-mt-28 py-24 bg-zinc-50 border-t border-b border-zinc-200">
       <div className="max-w-7xl mx-auto px-6">
         
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs uppercase tracking-widest text-[#DE8E38] font-black">DIE BEDIENUNG IM ALLTAG</span>
+          <span className="text-xs uppercase tracking-widest text-zinc-500 font-extrabold font-mono">DIE BEDIENUNG IM ALLTAG</span>
           <h2 className="text-3xl md:text-5xl font-black text-zinc-950 mt-1 mb-4 leading-tight">
             Einfach. Schnell. Tägliche Praxis.
           </h2>
@@ -635,10 +636,10 @@ const PathRoboticsHowItWorks = () => {
         {/* 3 Steps horizontal flow */}
         <div className="grid md:grid-cols-3 gap-8">
           {steps.map((st, i) => (
-            <div key={st.num} className="bg-white border border-zinc-200 rounded-[2rem] p-8 text-left relative overflow-hidden shadow-xs hover:border-[#DE8E38]/20 transition-all">
+            <div key={st.num} className="bg-white border border-zinc-200 rounded-[2rem] p-8 text-left relative overflow-hidden shadow-xs hover:border-zinc-400 transition-all">
               <div className="text-5xl font-black text-zinc-100 font-mono absolute top-4 right-6 pointer-events-none">{st.num}</div>
               
-              <div className="w-12 h-12 rounded-xl bg-[#DE8E38]/5 border border-[#DE8E38]/20 text-[#DE8E38] flex items-center justify-center font-bold text-base mb-6">
+              <div className="w-12 h-12 rounded-xl bg-zinc-100 border border-zinc-200 text-zinc-900 flex items-center justify-center font-bold text-base mb-6 shadow-2xs">
                 {st.num}
               </div>
               <h3 className="text-xl font-black text-zinc-950 tracking-tight leading-snug mb-3">{st.title}</h3>
@@ -674,13 +675,13 @@ const ProfitCalculator = ({ onOpenContact }: { onOpenContact: () => void }) => {
   };
 
   return (
-    <section id="rechner" className="py-24 bg-white text-zinc-950 relative">
-      <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] bg-amber-500/[0.02] rounded-full blur-[125px] pointer-events-none" />
+    <section id="rechner" className="scroll-mt-24 md:scroll-mt-28 py-24 bg-white text-zinc-950 relative">
+      <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] bg-zinc-100 rounded-full blur-[125px] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-6">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs uppercase tracking-widest text-[#DE8E38] font-black">INTERAKTIVER PROFIT-RECHNER</span>
+          <span className="text-xs uppercase tracking-widest text-zinc-500 font-extrabold font-mono">INTERAKTIVER PROFIT-RECHNER</span>
           <h2 className="text-3xl md:text-5xl font-black text-zinc-900 tracking-tight leading-tight mt-2 mb-4">
             Wie hoch ist Ihr geretteter Gewinn?
           </h2>
@@ -712,7 +713,7 @@ const ProfitCalculator = ({ onOpenContact }: { onOpenContact: () => void }) => {
                   step="10"
                   value={kebabsPerDay} 
                   onChange={(e) => setKebabsPerDay(Number(e.target.value))}
-                  className="w-full h-2 rounded-lg cursor-pointer bg-zinc-200 accent-[#DE8E38]"
+                  className="w-full h-2 rounded-lg cursor-pointer bg-zinc-200 accent-zinc-900"
                 />
                 <div className="flex justify-between text-[10px] text-zinc-450 font-bold mt-1.5 uppercase">
                   <span>50 Port.</span>
@@ -728,7 +729,7 @@ const ProfitCalculator = ({ onOpenContact }: { onOpenContact: () => void }) => {
                     <span className="text-xs text-zinc-500 font-black uppercase tracking-wider">Überportionierung pro Döner</span>
                     <HelpCircle className="w-3.5 h-3.5 text-zinc-450 cursor-help" title="Die Gramm-Menge, die im Schnitt unbewusst oder durch Stress über das Zielgewicht hinausgeht." />
                   </div>
-                  <span className="text-xl font-mono font-black text-rose-600">+{weightOffset}g</span>
+                  <span className="text-xl font-mono font-black text-rose-605">+{weightOffset}g</span>
                 </div>
                 <input 
                   type="range" 
@@ -737,7 +738,7 @@ const ProfitCalculator = ({ onOpenContact }: { onOpenContact: () => void }) => {
                   step="5"
                   value={weightOffset} 
                   onChange={(e) => setWeightOffset(Number(e.target.value))}
-                  className="w-full h-2 rounded-lg cursor-pointer bg-zinc-200 accent-[#DE8E38]"
+                  className="w-full h-2 rounded-lg cursor-pointer bg-zinc-200 accent-zinc-900"
                 />
                 <div className="flex justify-between text-[10px] text-zinc-450 font-bold mt-1.5 uppercase">
                   <span>5g (Hauch)</span>
@@ -759,7 +760,7 @@ const ProfitCalculator = ({ onOpenContact }: { onOpenContact: () => void }) => {
                   step="0.5"
                   value={meatPrice} 
                   onChange={(e) => setMeatPrice(Number(e.target.value))}
-                  className="w-full h-2 rounded-lg cursor-pointer bg-zinc-200 accent-[#DE8E38]"
+                  className="w-full h-2 rounded-lg cursor-pointer bg-zinc-200 accent-zinc-900"
                 />
                 <div className="flex justify-between text-[10px] text-zinc-450 font-bold mt-1.5 uppercase">
                   <span>4 € (Günstig)</span>
@@ -777,31 +778,31 @@ const ProfitCalculator = ({ onOpenContact }: { onOpenContact: () => void }) => {
           {/* Savings Outcome & Profit Saved Gauge - Right Panel ("mann das profit sieht") */}
           <div className="lg:col-span-6 bg-zinc-950 border border-zinc-800 p-6 md:p-10 rounded-[2.5rem] flex flex-col justify-between tracking-tight relative overflow-hidden text-white shadow-2xl">
             {/* Visual Stainless Grid Accent under text */}
-            <div className="absolute top-0 right-0 w-36 h-36 bg-[#DE8E38]/20 rounded-full blur-[60px]" />
+            <div className="absolute top-0 right-0 w-36 h-36 bg-zinc-800/20 rounded-full blur-[60px]" />
             
             <div>
-              <span className="text-[10px] uppercase tracking-widest text-[#DE8E38] font-black">DAS GEWINN-POTENZIAL</span>
+              <span className="text-[10px] uppercase tracking-widest text-zinc-400 font-black">DAS GEWINN-POTENZIAL</span>
               <h3 className="text-2xl font-black text-white mt-1 mb-8">Gesicherte Gewinne</h3>
               
               <div className="space-y-5">
                 {/* Daily Loss display */}
-                <div className="flex justify-between items-center bg-zinc-900 border border-zinc-800 p-4 rounded-xl">
+                <div className="flex justify-between items-center bg-zinc-905 border border-zinc-900 p-4 rounded-xl">
                   <span className="text-xs text-zinc-400 font-bold">Zusatz-Kosten am Tag:</span>
                   <span className="text-base font-mono font-black text-zinc-250">{formatEuro(dailyLoss)}</span>
                 </div>
 
                 {/* Monthly Loss display */}
-                <div className="flex justify-between items-center bg-zinc-900 border border-zinc-800 p-4 rounded-xl">
+                <div className="flex justify-between items-center bg-zinc-905 border border-zinc-900 p-4 rounded-xl">
                   <span className="text-xs text-zinc-400 font-bold">Zusatz-Kosten im Monat:</span>
                   <span className="text-lg font-mono font-black text-zinc-200">{formatEuro(monthlyLoss)}</span>
                 </div>
 
                 {/* Yearly SAVINGS Highlight - Interactive profit visualizer */}
-                <div className="bg-gradient-to-br from-[#DE8E38]/15 via-zinc-900 to-zinc-900/60 border border-[#DE8E38]/30 p-6 rounded-2xl relative overflow-hidden">
-                  <div className="absolute -top-12 -right-12 w-24 h-24 bg-[#DE8E38]/10 rounded-full blur-xl" />
+                <div className="bg-gradient-to-br from-zinc-900 via-zinc-950 to-zinc-900 border border-zinc-850 p-6 rounded-2xl relative overflow-hidden shadow-lg">
+                  <div className="absolute -top-12 -right-12 w-24 h-24 bg-zinc-800/10 rounded-full blur-xl" />
                   
-                  <span className="text-[10px] uppercase font-black text-[#DE8E38] tracking-widest block mb-1">RETTBARER GEWINN DURCH SEDOGRAMM / JAHR</span>
-                  <p className="text-4xl md:text-5xl font-mono font-black text-[#DE8E38] tracking-tight">
+                  <span className="text-[10px] uppercase font-black text-emerald-400 tracking-widest block mb-1">RETTBARER GEWINN DURCH SEDOGRAMM / JAHR</span>
+                  <p className="text-4xl md:text-5xl font-mono font-black text-emerald-400 tracking-tight">
                     {formatEuro(estimatedSavings)}
                   </p>
                   
@@ -816,7 +817,7 @@ const ProfitCalculator = ({ onOpenContact }: { onOpenContact: () => void }) => {
                         initial={{ width: "0%" }}
                         animate={{ width: "90%" }}
                         transition={{ duration: 1 }}
-                        className="bg-gradient-to-r from-amber-500 to-[#DE8E38] h-full rounded-full" 
+                        className="bg-gradient-to-r from-emerald-600 to-emerald-400 h-full rounded-full" 
                       />
                     </div>
                   </div>
@@ -872,11 +873,11 @@ const TargetAudience = () => {
   ];
 
   return (
-    <section id="zielgruppe" className="py-24 bg-zinc-50 border-t border-b border-zinc-150">
+    <section id="zielgruppe" className="scroll-mt-24 md:scroll-mt-28 py-24 bg-zinc-50 border-t border-b border-zinc-150">
       <div className="max-w-7xl mx-auto px-6">
         
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs uppercase tracking-widest text-[#DE8E38] font-black font-sans">EINSATZ-BEREICHE</span>
+          <span className="text-xs uppercase tracking-widest text-zinc-500 font-extrabold font-mono">EINSATZ-BEREICHE</span>
           <h2 className="text-3xl md:text-5xl font-black text-zinc-950 mt-1 mb-4">
             Egal welches Model.
           </h2>
@@ -891,11 +892,11 @@ const TargetAudience = () => {
             return (
               <div 
                 key={aud.title}
-                className="bg-white border border-zinc-200 rounded-2xl p-6.5 text-left flex flex-col justify-between hover:border-[#DE8E38]/30 transition-all shadow-xs"
+                className="bg-white border border-zinc-200 rounded-2xl p-6.5 text-left flex flex-col justify-between hover:border-zinc-400 transition-all shadow-xs"
               >
                 <div>
                   <div className="w-10 h-10 bg-zinc-50 border border-zinc-150 text-zinc-900 rounded-xl flex items-center justify-center mb-5">
-                    <IconComponent className="w-5 h-5 text-[#DE8E38]" />
+                    <IconComponent className="w-5 h-5 text-zinc-600" />
                   </div>
                   <h3 className="text-lg font-black text-zinc-950 font-sans tracking-tight mb-2.5">{aud.title}</h3>
                   <p className="text-xs text-zinc-500 font-semibold leading-relaxed font-sans">{aud.desc}</p>
@@ -916,7 +917,7 @@ const TargetAudience = () => {
 // Section: "Über den Gründer" / Vita of Alaattin Demir (Authentic Storytelling)
 const FounderStory = () => {
   return (
-    <section id="ursprung" className="py-24 bg-white relative">
+    <section id="ursprung" className="scroll-mt-24 md:scroll-mt-28 py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           
@@ -929,7 +930,7 @@ const FounderStory = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
-                <span className="text-[10px] uppercase font-black text-[#DE8E38] tracking-widest block">DER GRÜNDER</span>
+                <span className="text-[10px] uppercase font-extrabold font-mono text-zinc-400 tracking-widest block">DER GRÜNDER</span>
                 <strong className="text-xl text-white font-sans font-black block mt-1">Alaattin Demir</strong>
                 <p className="text-xs text-zinc-300 font-medium">Koch, Caterer & 3-facher Restaurant-Inhaber</p>
               </div>
@@ -937,7 +938,7 @@ const FounderStory = () => {
           </div>
 
           <div className="lg:col-span-7 text-left">
-            <span className="text-xs uppercase tracking-widest text-[#DE8E38] font-black font-sans">VOM GASTRONOMEN FÜR GASTRONOMEN</span>
+            <span className="text-xs uppercase tracking-widest text-zinc-500 font-extrabold font-mono">VOM GASTRONOMEN FÜR GASTRONOMEN</span>
             <h2 className="text-3xl md:text-5xl font-black text-zinc-950 tracking-tight leading-tight mt-2 mb-6">
               Entwickelt von Alaattin Demir.
             </h2>
@@ -945,8 +946,8 @@ const FounderStory = () => {
             <p className="text-base text-zinc-850 font-semibold leading-relaxed mb-4">
               "Als Betreiber von drei Standorten stand ich jeden Tag vor der gleichen Frage: Wie optimiere ich meine Kalkulation, ohne dass die Qualität leidet oder Kunden unzufrieden werden?"
             </p>
-
-            <div className="space-y-4 text-sm text-zinc-600 font-semibold leading-relaxed">
+ 
+            <div className="space-y-4 text-sm text-zinc-650 font-semibold leading-relaxed">
               <p>
                 Die Idee von SEDOGRAMM entstand direkt aus der tagtäglichen Praxis — nicht am grünen Tisch. Alaattin erlebte selbst, wie unkontrollierbare Portionen die Existenz eines wunderbar laufenden Restaurants belasten und zu ständigen Diskussionen mit dem Finanzamt führen können.
               </p>
@@ -954,9 +955,9 @@ const FounderStory = () => {
                 Dazu kommt der konstante Druck durch steigende Fleischpreise bei gleichzeitig wachsendem Wettbewerb. Um das Vertrauen im Betrieb wiederherzustellen und verlässliche Portionsgewichte GoBD-sicher nachweisbar zu machen, wurde SEDOGRAMM als erstes profitables Waagensystem für Dönerfleisch entworfen.
               </p>
             </div>
-
+ 
             <div className="mt-8 p-6 bg-zinc-50 border border-zinc-200 rounded-xl flex items-center gap-4.5">
-              <UserCheck className="w-8 h-8 text-[#DE8E38] shrink-0" />
+              <UserCheck className="w-8 h-8 text-zinc-950 shrink-0" />
               <div>
                 <strong className="text-sm font-sans font-black text-zinc-950">Keine Kompromisse im Arbeitsfluss</strong>
                 <p className="text-xs text-zinc-500 font-semibold mt-0.5">SedoGramm optimiert Ihre Margen, ohne Ihre Mitarbeiter an der Schneidestation einzubremsen.</p>
@@ -999,7 +1000,7 @@ const AppleBenefitsSection = () => {
   return (
     <section className="py-24 bg-zinc-50 border-t border-b border-zinc-200 text-zinc-900">
       <div className="max-w-4xl mx-auto px-6 text-left">
-        <span className="text-xs uppercase tracking-widest text-[#DE8E38] font-black">DAS VERSPRECHEN</span>
+        <span className="text-xs uppercase tracking-widest text-zinc-500 font-extrabold font-mono">DAS VERSPRECHEN</span>
         <h2 className="text-3xl md:text-5xl font-black text-zinc-950 tracking-tight leading-tight mt-1 mb-12">
           Alle Vorteile auf einen Blick.
         </h2>
@@ -1026,10 +1027,10 @@ const AppleBenefitsSection = () => {
 const CallToAction = ({ onOpenContact }: { onOpenContact: () => void }) => {
   return (
     <section className="py-24 bg-white relative">
-      <div className="absolute -bottom-10 left-12 w-[350px] h-[350px] bg-amber-500/[0.015] rounded-full blur-[80px]" />
+      <div className="absolute -bottom-10 left-12 w-[350px] h-[350px] bg-zinc-500/[0.015] rounded-full blur-[80px]" />
       
       <div className="max-w-4xl mx-auto px-6 text-center z-10 relative font-sans">
-        <span className="text-xs uppercase tracking-widest text-[#DE8E38] font-black">STARTEN SIE DIE REVOLUTION</span>
+        <span className="text-xs uppercase tracking-widest text-zinc-500 font-extrabold font-mono">STARTEN SIE DIE REVOLUTION</span>
         <h2 className="text-4xl md:text-6xl font-black text-zinc-950 leading-tight mt-2 mb-6">
           Perfektion für jeden Döner.
         </h2>
@@ -1040,7 +1041,7 @@ const CallToAction = ({ onOpenContact }: { onOpenContact: () => void }) => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
           <button 
             onClick={onOpenContact}
-            className="w-full bg-zinc-950 hover:bg-[#DE8E38] text-white py-4 px-8 rounded-xl font-black uppercase text-xs tracking-widest transition-colors cursor-pointer"
+            className="w-full bg-zinc-950 hover:bg-zinc-900 border border-zinc-950 text-white py-4 px-8 rounded-xl font-black uppercase text-xs tracking-widest transition-colors cursor-pointer"
           >
             Kostenlos Anfragen
           </button>
@@ -1064,11 +1065,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           
           <div className="col-span-full md:col-span-2 text-left">
-            <span className="text-xl font-black text-zinc-950 uppercase tracking-tight">SEDO<span className="text-[#DE8E38]">GRAMM</span></span>
+            <span className="text-xl font-black text-zinc-950 uppercase tracking-tight">SEDO<span className="text-zinc-600">GRAMM</span></span>
             <p className="text-sm font-semibold text-zinc-500 mt-2 max-w-sm leading-relaxed">
               Die erste intelligente Dönerwaage für konstante Marge, maximale Kontrolle und nachweisbare Transparenz.
             </p>
-            <p className="text-[#DE8E38] text-base font-bold italic mt-3">"Weil Transparenz das wichtigste Gewürz ist."</p>
+            <p className="text-zinc-800 text-sm font-bold italic mt-3">"Weil Transparenz das wichtigste Gewürz ist."</p>
           </div>
 
           <div className="text-left">
@@ -1117,7 +1118,7 @@ export default function App() {
   }, [kebabsPerDay, weightOffset, meatPrice]);
 
   return (
-    <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-[#DE8E38] selection:text-white antialiased overflow-x-hidden">
+    <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-zinc-950 selection:text-white antialiased overflow-x-hidden">
       
       {/* Contact Inquiry Form Modal */}
       <ContactModal 
@@ -1142,6 +1143,9 @@ export default function App() {
       
       {/* Stripe inspired Technical Specs Bento Box (Sensor, Display, Edelstahlgehäuse, Cloud dashboard) */}
       <StripeTechnicalSolution />
+
+      {/* Apple-style scroll animated deep dive on scale anatomy */}
+      <AppleScaleShowcase onOpenContact={() => setIsContactOpen(true)} />
       
       {/* Path Robotics "Wie es funktioniert" 3 steps workflow */}
       <PathRoboticsHowItWorks />
