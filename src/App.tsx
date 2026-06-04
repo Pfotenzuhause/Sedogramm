@@ -418,7 +418,13 @@ const IndustryProblem = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           
-          <div className="lg:col-span-5 text-left">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.15, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 text-left"
+          >
             <span className="text-xs uppercase tracking-widest text-rose-650 font-black">Die bittere Wahrheit</span>
             <h2 className="text-3xl md:text-5xl font-black text-zinc-950 tracking-tight leading-tight mt-2 mb-6">
               Wer schätzt, <br />
@@ -427,7 +433,7 @@ const IndustryProblem = () => {
             <p className="text-base text-zinc-750 font-semibold leading-relaxed mb-6">
               In fast jedem Dönerbetrieb wird Fleisch nach Fingerspitzengefühl des Mitarbeiters geschnitten. Doch Schätzen ist unzuverlässig und teuer geworden.
             </p>
-            <div className="p-5 bg-rose-50 border border-rose-100/65 rounded-2.5xl space-y-4">
+            <div className="p-5 bg-rose-50 border border-rose-100/65 rounded-2.5xl space-y-4 font-sans">
               <div className="flex gap-3">
                 <div className="w-6 h-6 rounded-full bg-rose-500/10 flex items-center justify-center shrink-0">
                   <span className="text-xs text-rose-600 font-bold">1</span>
@@ -445,14 +451,20 @@ const IndustryProblem = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="lg:col-span-7">
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.15, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7"
+          >
             {/* Visual card mimicking elegant mathematical telemetry */}
             <div className="bg-white border border-zinc-200 rounded-[2rem] p-8 shadow-sm text-left relative overflow-hidden">
               <div className="absolute top-0 right-0 w-44 h-44 bg-rose-550/[0.02] rounded-full blur-[60px]" />
               
-              <div className="flex justify-between items-start border-b border-zinc-100 pb-5 mb-6">
+              <div className="flex justify-between items-start border-b border-zinc-100 pb-5 mb-6 font-sans">
                 <div>
                   <span className="text-[10px] uppercase tracking-wider text-rose-600 font-black">Kalkulierter Verlust-Effekt</span>
                   <p className="text-lg font-black text-zinc-950 mt-1">Überportionierung im Dönerbetrieb</p>
@@ -461,7 +473,7 @@ const IndustryProblem = () => {
               </div>
               
               <div className="space-y-6">
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-3 gap-4 font-sans">
                   <div className="bg-zinc-50 border border-zinc-150 p-4 rounded-xl">
                     <span className="block text-[9px] uppercase tracking-wider text-zinc-400 font-bold">1 Döner am Tag</span>
                     <strong className="text-sm font-mono text-zinc-800 font-black">+30g Zuviel</strong>
@@ -476,7 +488,7 @@ const IndustryProblem = () => {
                   </div>
                 </div>
 
-                <div className="p-5 bg-zinc-50 border border-zinc-200 rounded-xl">
+                <div className="p-5 bg-zinc-50 border border-zinc-200 rounded-xl font-sans">
                   <span className="text-[10px] uppercase tracking-wider text-zinc-550 font-extrabold block">Die traurige Realität über das Jahr</span>
                   <p className="text-xl md:text-2xl font-black text-rose-600 tracking-tight font-mono mt-1">Over 27.000 € Verlust</p>
                   <p className="text-xs text-zinc-500 font-semibold mt-1">Geld, das Sie unbemerkt wegschneiden, anstatt es als Gewinn einzubehalten.</p>
@@ -484,7 +496,7 @@ const IndustryProblem = () => {
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>
@@ -530,68 +542,81 @@ const StripeTechnicalSolution = () => {
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Apple Style text intro */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.15 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
           <span className="text-xs uppercase tracking-widest text-zinc-500 font-extrabold font-mono">INDUSTRIEDESIGN UND INTELLIGENZ</span>
-          <h2 className="text-3xl md:text-5xl font-black text-zinc-950 mt-1 mb-4 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-black text-zinc-950 mt-1 mb-4 leading-tight font-sans">
             Präzision bis ins letzte Gramm.
           </h2>
-          <p className="text-base text-zinc-650 font-semibold leading-relaxed">
+          <p className="text-base text-zinc-650 font-semibold leading-relaxed font-sans">
             Hochentwickelte Technologie, die nahtlos in den stressigen Döner-Betrieb integriert wird — für dauerhafte Stabilität und dauerhaften Erfolg.
           </p>
-        </div>
+        </motion.div>
 
         {/* 4 Cards Bento Grid Layout - Stripe style B2B precision details */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {features.map((f, idx) => (
-            <div 
-              key={f.id}
-              className="bg-zinc-50 hover:bg-zinc-50 border border-zinc-200 rounded-[2rem] p-8 text-left transition-all hover:border-zinc-400 flex flex-col justify-between group"
-            >
-              <div>
-                <div className="flex justify-between items-center mb-6">
-                  <span className="text-[10px] uppercase font-black tracking-widest text-zinc-800 bg-zinc-200/60 px-3 py-1 rounded-full">{f.tag}</span>
-                  <span className="text-xs font-mono font-black text-zinc-300">0{idx + 1}</span>
+        <div className="grid md:grid-cols-2 gap-8 overflow-hidden">
+          {features.map((f, idx) => {
+            const isLeft = idx % 2 === 0;
+            return (
+              <motion.div 
+                key={f.id}
+                initial={{ opacity: 0, x: isLeft ? -50 : 50, y: 20 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: false, amount: 0.12, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: (idx % 2) * 0.08 }}
+                className="bg-zinc-50 hover:bg-zinc-50 border border-zinc-200 rounded-[2rem] p-8 text-left transition-all hover:border-zinc-400 flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="flex justify-between items-center mb-6 font-sans">
+                    <span className="text-[10px] uppercase font-black tracking-widest text-zinc-800 bg-zinc-200/60 px-3 py-1 rounded-full">{f.tag}</span>
+                    <span className="text-xs font-mono font-black text-zinc-300">0{idx + 1}</span>
+                  </div>
+                  <h3 className="text-2xl font-black text-zinc-950 tracking-tight font-sans">{f.title}</h3>
+                  <p className="text-xs text-zinc-500 font-extrabold uppercase tracking-wide mt-1 mb-4 font-mono">{f.subtitle}</p>
+                  <p className="text-sm text-zinc-600 font-medium leading-relaxed font-sans">{f.desc}</p>
                 </div>
-                <h3 className="text-2xl font-black text-zinc-950 tracking-tight">{f.title}</h3>
-                <p className="text-xs text-zinc-500 font-extrabold uppercase tracking-wide mt-1 mb-4">{f.subtitle}</p>
-                <p className="text-sm text-zinc-600 font-medium leading-relaxed">{f.desc}</p>
-              </div>
 
-              {/* Fake UI Preview inside box - Stripe style */}
-              <div className="mt-8 border border-zinc-200 bg-white rounded-xl p-4 shadow-xs relative overflow-hidden">
-                <div className="flex justify-between items-center text-[10px] font-mono text-zinc-400 pb-2 border-b border-zinc-100">
-                  <span>SEDOGRAMM SYSTEM ACTIVE</span>
-                  <span className="text-emerald-600 font-bold">LIVE ONLINE</span>
+                {/* Fake UI Preview inside box - Stripe style */}
+                <div className="mt-8 border border-zinc-200 bg-white rounded-xl p-4 shadow-xs relative overflow-hidden font-sans">
+                  <div className="flex justify-between items-center text-[10px] font-mono text-zinc-400 pb-2 border-b border-zinc-100">
+                    <span>SEDOGRAMM SYSTEM ACTIVE</span>
+                    <span className="text-emerald-600 font-bold">LIVE ONLINE</span>
+                  </div>
+                  
+                  {f.id === 'sensor' && (
+                    <div className="pt-3 flex justify-between items-center">
+                      <span className="text-xs font-extrabold text-zinc-900">Drucksensor-Feedback</span>
+                      <span className="text-xs font-bold text-zinc-900 font-mono">0.05 Sek Reaktionszeit</span>
+                    </div>
+                  )}
+                  {f.id === 'display' && (
+                    <div className="pt-3 flex justify-between items-center">
+                      <span className="text-xs font-extrabold text-zinc-800">Spiegelanzeige Kontrast</span>
+                      <span className="text-xs font-bold text-zinc-900 font-mono">98% Blendfrei</span>
+                    </div>
+                  )}
+                  {f.id === 'fettwanne' && (
+                    <div className="pt-3 flex justify-between items-center">
+                      <span className="text-xs font-extrabold text-zinc-800">Gehäuse-Material</span>
+                      <span className="text-xs font-semibold text-zinc-650 font-sans">DIN-Edelstahl 1.4301 V2A</span>
+                    </div>
+                  )}
+                  {f.id === 'dashboard' && (
+                    <div className="pt-3 flex justify-between items-center">
+                      <span className="text-xs font-extrabold text-emerald-700">Abgewogenes Fleisch gesamt</span>
+                      <span className="text-xs font-mono font-black text-zinc-900">30.400g (Ziel: 30.000g)</span>
+                    </div>
+                  )}
                 </div>
-                
-                {f.id === 'sensor' && (
-                  <div className="pt-3 flex justify-between items-center">
-                    <span className="text-xs font-extrabold text-zinc-900">Drucksensor-Feedback</span>
-                    <span className="text-xs font-bold text-zinc-900 font-mono">0.05 Sek Reaktionszeit</span>
-                  </div>
-                )}
-                {f.id === 'display' && (
-                  <div className="pt-3 flex justify-between items-center">
-                    <span className="text-xs font-extrabold text-zinc-800">Spiegelanzeige Kontrast</span>
-                    <span className="text-xs font-bold text-zinc-900 font-mono">98% Blendfrei</span>
-                  </div>
-                )}
-                {f.id === 'fettwanne' && (
-                  <div className="pt-3 flex justify-between items-center">
-                    <span className="text-xs font-extrabold text-zinc-800">Gehäuse-Material</span>
-                    <span className="text-xs font-semibold text-zinc-650 font-sans">DIN-Edelstahl 1.4301 V2A</span>
-                  </div>
-                )}
-                {f.id === 'dashboard' && (
-                  <div className="pt-3 flex justify-between items-center">
-                    <span className="text-xs font-extrabold text-emerald-700">Abgewogenes Fleisch gesamt</span>
-                    <span className="text-xs font-mono font-black text-zinc-900">30.400g (Ziel: 30.000g)</span>
-                  </div>
-                )}
-              </div>
 
-            </div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
       </div>
@@ -623,29 +648,46 @@ const PathRoboticsHowItWorks = () => {
     <section id="wie-es-funktioniert" className="scroll-mt-24 md:scroll-mt-28 py-24 bg-zinc-50 border-t border-b border-zinc-200">
       <div className="max-w-7xl mx-auto px-6">
         
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.15 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
           <span className="text-xs uppercase tracking-widest text-zinc-500 font-extrabold font-mono">DIE BEDIENUNG IM ALLTAG</span>
-          <h2 className="text-3xl md:text-5xl font-black text-zinc-950 mt-1 mb-4 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-black text-zinc-950 mt-1 mb-4 leading-tight font-sans">
             Einfach. Schnell. Tägliche Praxis.
           </h2>
-          <p className="text-base text-zinc-650 font-semibold leading-relaxed">
+          <p className="text-base text-zinc-650 font-semibold leading-relaxed font-sans">
             Keine Schulungen oder IT-Kenntnisse nötig. Entwickelt, um Ihren Arbeitsfluss an stressigen Wochenenden zu beschleunigen statt zu verlangsamen.
           </p>
-        </div>
+        </motion.div>
 
         {/* 3 Steps horizontal flow */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {steps.map((st, i) => (
-            <div key={st.num} className="bg-white border border-zinc-200 rounded-[2rem] p-8 text-left relative overflow-hidden shadow-xs hover:border-zinc-400 transition-all">
-              <div className="text-5xl font-black text-zinc-100 font-mono absolute top-4 right-6 pointer-events-none">{st.num}</div>
-              
-              <div className="w-12 h-12 rounded-xl bg-zinc-100 border border-zinc-200 text-zinc-900 flex items-center justify-center font-bold text-base mb-6 shadow-2xs">
-                {st.num}
-              </div>
-              <h3 className="text-xl font-black text-zinc-950 tracking-tight leading-snug mb-3">{st.title}</h3>
-              <p className="text-sm text-zinc-500 font-semibold leading-relaxed">{st.desc}</p>
-            </div>
-          ))}
+        <div className="grid md:grid-cols-3 gap-8 overflow-hidden">
+          {steps.map((st, i) => {
+            const xVal = i === 0 ? -60 : i === 2 ? 60 : 0;
+            const yVal = i === 1 ? 40 : 15;
+            return (
+              <motion.div 
+                key={st.num} 
+                initial={{ opacity: 0, x: xVal, y: yVal }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: false, amount: 0.15, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.08 }}
+                className="bg-white border border-zinc-200 rounded-[2rem] p-8 text-left relative overflow-hidden shadow-xs hover:border-zinc-400 transition-all font-sans"
+              >
+                <div className="text-5xl font-black text-zinc-100 font-mono absolute top-4 right-6 pointer-events-none">{st.num}</div>
+                
+                <div className="w-12 h-12 rounded-xl bg-zinc-100 border border-zinc-200 text-zinc-900 flex items-center justify-center font-bold text-base mb-6 shadow-2xs">
+                  {st.num}
+                </div>
+                <h3 className="text-xl font-black text-zinc-950 tracking-tight leading-snug mb-3">{st.title}</h3>
+                <p className="text-sm text-zinc-500 font-semibold leading-relaxed">{st.desc}</p>
+              </motion.div>
+            );
+          })}
         </div>
 
       </div>
@@ -680,20 +722,32 @@ const ProfitCalculator = ({ onOpenContact }: { onOpenContact: () => void }) => {
       
       <div className="max-w-7xl mx-auto px-6">
         
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.15 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <span className="text-xs uppercase tracking-widest text-zinc-500 font-extrabold font-mono">INTERAKTIVER PROFIT-RECHNER</span>
           <h2 className="text-3xl md:text-5xl font-black text-zinc-900 tracking-tight leading-tight mt-2 mb-4">
             Wie hoch ist Ihr geretteter Gewinn?
           </h2>
-          <p className="text-zinc-600 font-semibold leading-relaxed">
+          <p className="text-zinc-650 font-semibold leading-relaxed font-sans">
             Spielen Sie die Zahlen Ihres aktuellen Döner-Ladens durch und berechnen Sie das exakte Einsparpotenzial durch SedoGramm Waagen-Protokollierung.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-12 gap-10 items-stretch">
+        <div className="grid lg:grid-cols-12 gap-10 items-stretch overflow-hidden">
           
           {/* Sliders Area - Left Panel */}
-          <div className="lg:col-span-6 bg-zinc-50 border border-zinc-200 p-6 md:p-10 rounded-[2.5rem] flex flex-col justify-between shadow-xs">
+          <motion.div 
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.15, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-6 bg-zinc-50 border border-zinc-200 p-6 md:p-10 rounded-[2.5rem] flex flex-col justify-between shadow-xs"
+          >
             <div>
               <div className="border-b border-zinc-250 pb-4 mb-8">
                 <span className="text-xs uppercase tracking-widest text-zinc-400 font-black">Betriebliche Parameter</span>
@@ -773,10 +827,16 @@ const ProfitCalculator = ({ onOpenContact }: { onOpenContact: () => void }) => {
             <p className="text-[11px] text-zinc-400 font-semibold leading-relaxed border-t border-zinc-200 pt-4 mt-8 italic">
               * Die Berechnung ermittelt rein den Fleischverlust (ohne Saucen/Brot). Der eingesparte Rohstoffwert fließt zu 100% wieder in Ihren monatlichen Reingewinn ein.
             </p>
-          </div>
+          </motion.div>
 
           {/* Savings Outcome & Profit Saved Gauge - Right Panel ("mann das profit sieht") */}
-          <div className="lg:col-span-6 bg-zinc-950 border border-zinc-800 p-6 md:p-10 rounded-[2.5rem] flex flex-col justify-between tracking-tight relative overflow-hidden text-white shadow-2xl">
+          <motion.div 
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.15, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-6 bg-zinc-950 border border-zinc-800 p-6 md:p-10 rounded-[2.5rem] flex flex-col justify-between tracking-tight relative overflow-hidden text-white shadow-2xl font-sans"
+          >
             {/* Visual Stainless Grid Accent under text */}
             <div className="absolute top-0 right-0 w-36 h-36 bg-zinc-800/20 rounded-full blur-[60px]" />
             
@@ -838,7 +898,7 @@ const ProfitCalculator = ({ onOpenContact }: { onOpenContact: () => void }) => {
               </button>
             </div>
 
-          </div>
+          </motion.div>
 
         </div>
 
@@ -876,23 +936,35 @@ const TargetAudience = () => {
     <section id="zielgruppe" className="scroll-mt-24 md:scroll-mt-28 py-24 bg-zinc-50 border-t border-b border-zinc-150">
       <div className="max-w-7xl mx-auto px-6">
         
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.15 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
           <span className="text-xs uppercase tracking-widest text-zinc-500 font-extrabold font-mono">EINSATZ-BEREICHE</span>
-          <h2 className="text-3xl md:text-5xl font-black text-zinc-950 mt-1 mb-4">
+          <h2 className="text-3xl md:text-5xl font-black text-zinc-950 mt-1 mb-4 leading-tight font-sans">
             Egal welches Model.
           </h2>
-          <p className="text-base text-zinc-650 font-semibold leading-relaxed">
+          <p className="text-base text-zinc-650 font-semibold leading-relaxed font-sans">
             SedoGramm Waagensysteme eignen sich für jeden gastronomischen Betrieb, der Fleischportionen akkurat verkaufen möchte.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 overflow-hidden">
           {audiences.map((aud, index) => {
             const IconComponent = aud.icon;
+            const xVal = index === 0 ? -50 : index === 3 ? 50 : 0;
+            const yVal = (index === 1 || index === 2) ? 40 : 15;
             return (
-              <div 
+              <motion.div 
                 key={aud.title}
-                className="bg-white border border-zinc-200 rounded-2xl p-6.5 text-left flex flex-col justify-between hover:border-zinc-400 transition-all shadow-xs"
+                initial={{ opacity: 0, x: xVal, y: yVal }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: false, amount: 0.15, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: index * 0.06 }}
+                className="bg-white border border-zinc-200 rounded-2xl p-6.5 text-left flex flex-col justify-between hover:border-zinc-400 transition-all shadow-xs font-sans"
               >
                 <div>
                   <div className="w-10 h-10 bg-zinc-50 border border-zinc-150 text-zinc-900 rounded-xl flex items-center justify-center mb-5">
@@ -904,7 +976,7 @@ const TargetAudience = () => {
                 <div className="pt-6">
                   <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-350 font-mono">SEDOGRAMM TARGET</span>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
@@ -919,9 +991,15 @@ const FounderStory = () => {
   return (
     <section id="ursprung" className="scroll-mt-24 md:scroll-mt-28 py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
+        <div className="grid lg:grid-cols-12 gap-12 items-center overflow-hidden">
           
-          <div className="lg:col-span-5 relative">
+          <motion.div 
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.15, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 relative"
+          >
             <div className="rounded-[2.5rem] overflow-hidden border border-zinc-250 aspect-[4/5] shadow-lg relative bg-zinc-50">
               <img 
                 src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1200" 
@@ -929,15 +1007,21 @@ const FounderStory = () => {
                 className="w-full h-full object-cover brightness-95 contrast-102"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6">
+              <div className="absolute bottom-6 left-6 right-6 font-sans">
                 <span className="text-[10px] uppercase font-extrabold font-mono text-zinc-400 tracking-widest block">DER GRÜNDER</span>
                 <strong className="text-xl text-white font-sans font-black block mt-1">Alaattin Demir</strong>
                 <p className="text-xs text-zinc-300 font-medium">Koch, Caterer & 3-facher Restaurant-Inhaber</p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="lg:col-span-7 text-left">
+          <motion.div 
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.15, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 text-left font-sans"
+          >
             <span className="text-xs uppercase tracking-widest text-zinc-500 font-extrabold font-mono">VOM GASTRONOMEN FÜR GASTRONOMEN</span>
             <h2 className="text-3xl md:text-5xl font-black text-zinc-950 tracking-tight leading-tight mt-2 mb-6">
               Entwickelt von Alaattin Demir.
@@ -964,7 +1048,7 @@ const FounderStory = () => {
               </div>
             </div>
 
-          </div>
+          </motion.div>
 
         </div>
       </div>
@@ -998,25 +1082,43 @@ const AppleBenefitsSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-zinc-50 border-t border-b border-zinc-200 text-zinc-900">
+    <section className="py-24 bg-zinc-50 border-t border-b border-zinc-200 text-zinc-900 overflow-hidden">
       <div className="max-w-4xl mx-auto px-6 text-left">
-        <span className="text-xs uppercase tracking-widest text-zinc-500 font-extrabold font-mono">DAS VERSPRECHEN</span>
-        <h2 className="text-3xl md:text-5xl font-black text-zinc-950 tracking-tight leading-tight mt-1 mb-12">
-          Alle Vorteile auf einen Blick.
-        </h2>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.15 }}
+          transition={{ duration: 0.7 }}
+          className="font-sans"
+        >
+          <span className="text-xs uppercase tracking-widest text-zinc-500 font-extrabold font-mono">DAS VERSPRECHEN</span>
+          <h2 className="text-3xl md:text-5xl font-black text-zinc-950 tracking-tight leading-tight mt-1 mb-12">
+            Alle Vorteile auf einen Blick.
+          </h2>
+        </motion.div>
 
-        <div className="space-y-8">
-          {bulletBenefits.map((b, idx) => (
-            <div key={idx} className="flex gap-4 items-start border-b border-zinc-200 pb-6 last:border-b-0 last:pb-0">
-              <div className="w-5 h-5 rounded-full bg-zinc-950 text-white flex items-center justify-center shrink-0 mt-1">
-                <Check className="w-3 h-3 text-white stroke-[3.5]" />
-              </div>
-              <div>
-                <h3 className="text-xl font-black text-zinc-950 leading-snug">{b.title}</h3>
-                <p className="text-zinc-650 text-sm font-semibold mt-1.5 leading-relaxed">{b.desc}</p>
-              </div>
-            </div>
-          ))}
+        <div className="space-y-8 font-sans">
+          {bulletBenefits.map((b, idx) => {
+            const isLeft = idx % 2 === 0;
+            return (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, x: isLeft ? -45 : 45 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false, amount: 0.15, margin: "-80px" }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="flex gap-4 items-start border-b border-zinc-200 pb-6 last:border-b-0 last:pb-0"
+              >
+                <div className="w-5 h-5 rounded-full bg-zinc-950 text-white flex items-center justify-center shrink-0 mt-1">
+                  <Check className="w-3 h-3 text-white stroke-[3.5]" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-black text-zinc-950 leading-snug">{b.title}</h3>
+                  <p className="text-zinc-650 text-sm font-semibold mt-1.5 leading-relaxed">{b.desc}</p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -1026,10 +1128,16 @@ const AppleBenefitsSection = () => {
 // Call To Action - Apple / Tesla style
 const CallToAction = ({ onOpenContact }: { onOpenContact: () => void }) => {
   return (
-    <section className="py-24 bg-white relative">
+    <section className="py-24 bg-white relative overflow-hidden">
       <div className="absolute -bottom-10 left-12 w-[350px] h-[350px] bg-zinc-500/[0.015] rounded-full blur-[80px]" />
       
-      <div className="max-w-4xl mx-auto px-6 text-center z-10 relative font-sans">
+      <motion.div 
+        initial={{ opacity: 0, y: 35, scale: 0.98 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: false, amount: 0.15 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="max-w-4xl mx-auto px-6 text-center z-10 relative font-sans"
+      >
         <span className="text-xs uppercase tracking-widest text-zinc-500 font-extrabold font-mono">STARTEN SIE DIE REVOLUTION</span>
         <h2 className="text-4xl md:text-6xl font-black text-zinc-950 leading-tight mt-2 mb-6">
           Perfektion für jeden Döner.
@@ -1052,7 +1160,7 @@ const CallToAction = ({ onOpenContact }: { onOpenContact: () => void }) => {
             Potenzial Berechnen
           </button>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
