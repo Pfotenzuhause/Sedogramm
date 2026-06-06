@@ -177,7 +177,7 @@ const ContactModal = ({
                   {defaultInquiryData && (
                     <div className="bg-zinc-100 border border-zinc-200 rounded-xl p-3 text-[11px] text-zinc-850 font-semibold font-sans">
                       ⚡ <strong>Angehängte Live-Kalkulation:</strong><br />
-                      Mittelwert: <strong>{defaultInquiryData.kebabsPerDay} Portionen/Tag</strong> mit <strong>+{defaultInquiryData.weightOffset}g Überportion</strong>. Gespartes Potenzial: <strong className="text-emerald-700">{new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(defaultInquiryData.yearlySavings)} / Jahr</strong>.
+                      Mittelwert: <strong>{defaultInquiryData.kebabsPerDay} Portionen/Tag</strong> mit <strong>+{defaultInquiryData.weightOffset}g Überportion</strong>. Gespartes Potenzial: <strong className="text-emerald-800">{new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(defaultInquiryData.yearlySavings)} / Jahr</strong>.
                     </div>
                   )}
 
@@ -354,8 +354,8 @@ const Hero = ({ onOpenContact }: { onOpenContact: () => void }) => {
         >
           {/* Top header representing real industrial steel device display casing */}
           <div className="absolute top-4 left-6 flex items-center gap-1.5 z-20">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-[10px] uppercase tracking-widest text-zinc-500 font-extrabold font-mono">SedoGramm Real-Time Digital Hub</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse" />
+            <span className="text-xs md:text-[10px] uppercase tracking-widest text-zinc-500 font-extrabold font-mono">SedoGramm Real-Time Digital Hub</span>
           </div>
 
           <div className="rounded-[1.5rem] overflow-hidden aspect-[16/9] w-full relative">
@@ -376,7 +376,7 @@ const Hero = ({ onOpenContact }: { onOpenContact: () => void }) => {
             className="md:absolute md:bottom-10 md:left-10 md:right-10 bg-white/95 border border-zinc-200/90 rounded-2xl p-4 md:p-6 shadow-[0_20px_40px_rgba(0,0,0,0.08)] backdrop-blur-md flex flex-col md:flex-row items-center justify-between text-left gap-4 mt-6 md:mt-0 relative z-10"
           >
             <div>
-              <span className="text-[9px] uppercase tracking-[0.2em] text-zinc-500 font-black font-mono">AKTUELLER MESSWERT (GERADE AUFGELEGT)</span>
+              <span className="text-xs sm:text-[9px] uppercase tracking-[0.2em] text-zinc-500 font-black font-mono">AKTUELLER MESSWERT (GERADE AUFGELEGT)</span>
               <div className="flex items-baseline gap-1 mt-0.5">
                 <span className="text-3xl md:text-4xl font-mono font-black text-zinc-900 tracking-tight">120.0</span>
                 <span className="text-lg md:text-xl font-mono text-zinc-500 font-bold">g</span>
@@ -384,13 +384,13 @@ const Hero = ({ onOpenContact }: { onOpenContact: () => void }) => {
             </div>
             <div className="h-px md:h-10 w-full md:w-px bg-zinc-200" />
             <div className="text-center md:text-left font-sans">
-              <span className="text-[9px] uppercase tracking-widest text-zinc-500 font-black">KALKULATIONS-ZUSTAND</span>
-              <p className="text-xs font-black text-emerald-600 mt-0.5 uppercase tracking-wide">✓ 100% Perfekte Marge gesichert</p>
+              <span className="text-xs sm:text-[9px] uppercase tracking-widest text-zinc-400 font-black">KALKULATIONS-ZUSTAND</span>
+              <p className="text-xs md:text-sm font-black text-emerald-700 mt-0.5 uppercase tracking-wide">✓ 100% Perfekte Marge gesichert</p>
             </div>
             <div>
               <button 
                 onClick={onOpenContact} 
-                className="bg-zinc-950 text-white font-black text-[10px] uppercase tracking-wider py-2.5 px-6 rounded-lg hover:bg-zinc-800 transition-colors w-full md:w-auto"
+                className="bg-zinc-950 text-white font-black text-xs md:text-[10px] uppercase tracking-wider py-2.5 px-6 rounded-lg hover:bg-zinc-800 transition-colors w-full md:w-auto"
               >
                 Live testen
               </button>
@@ -466,32 +466,32 @@ const IndustryProblem = () => {
               
               <div className="flex justify-between items-start border-b border-zinc-100 pb-5 mb-6 font-sans">
                 <div>
-                  <span className="text-[10px] uppercase tracking-wider text-rose-600 font-black">Kalkulierter Verlust-Effekt</span>
-                  <p className="text-lg font-black text-zinc-950 mt-1">Überportionierung im Dönerbetrieb</p>
+                  <span className="text-xs md:text-[10px] uppercase tracking-wider text-rose-600 font-extrabold pb-1 block">Kalkulierter Verlust-Effekt</span>
+                  <p className="text-lg md:text-xl font-black text-zinc-950 mt-1">Überportionierung im Dönerbetrieb</p>
                 </div>
                 <TrendingDown className="w-6 h-6 text-rose-600" />
               </div>
               
               <div className="space-y-6">
-                <div className="grid grid-cols-3 gap-4 font-sans">
-                  <div className="bg-zinc-50 border border-zinc-150 p-4 rounded-xl">
-                    <span className="block text-[9px] uppercase tracking-wider text-zinc-400 font-bold">1 Döner am Tag</span>
-                    <strong className="text-sm font-mono text-zinc-800 font-black">+30g Zuviel</strong>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 font-sans">
+                  <div className="bg-zinc-50 border border-zinc-150 p-4.5 rounded-xl">
+                    <span className="block text-xs sm:text-[9px] uppercase tracking-wider text-zinc-400 font-bold mb-1">1 Döner am Tag</span>
+                    <strong className="text-base sm:text-xs md:text-sm font-mono text-zinc-850 font-black">+30g Zuviel</strong>
                   </div>
-                  <div className="bg-zinc-50 border border-zinc-150 p-4 rounded-xl">
-                    <span className="block text-[9px] uppercase tracking-wider text-zinc-400 font-bold">Bei 250 Döner/Tag</span>
-                    <strong className="text-sm font-mono text-zinc-800 font-black">7.5 kg / Tag</strong>
+                  <div className="bg-zinc-50 border border-zinc-150 p-4.5 rounded-xl">
+                    <span className="block text-xs sm:text-[9px] uppercase tracking-wider text-zinc-400 font-bold mb-1">Bei 250 Döner/Tag</span>
+                    <strong className="text-base sm:text-xs md:text-sm font-mono text-zinc-850 font-black">7.5 kg / Tag</strong>
                   </div>
-                  <div className="bg-rose-50 border border-rose-100 p-4 rounded-xl">
-                    <span className="block text-[9px] uppercase tracking-wider text-rose-600 font-bold">Umgerechnet</span>
-                    <strong className="text-sm font-mono text-rose-700 font-black">~75,00 € / Tag</strong>
+                  <div className="bg-rose-50 border border-rose-100 p-4.5 rounded-xl">
+                    <span className="block text-xs sm:text-[9px] uppercase tracking-wider text-rose-600 font-bold mb-1">Umgerechnet</span>
+                    <strong className="text-base sm:text-xs md:text-sm font-mono text-rose-700 font-black">~75,00 € / Tag</strong>
                   </div>
                 </div>
 
                 <div className="p-5 bg-zinc-50 border border-zinc-200 rounded-xl font-sans">
-                  <span className="text-[10px] uppercase tracking-wider text-zinc-550 font-extrabold block">Die traurige Realität über das Jahr</span>
-                  <p className="text-xl md:text-2xl font-black text-rose-600 tracking-tight font-mono mt-1">Over 27.000 € Verlust</p>
-                  <p className="text-xs text-zinc-500 font-semibold mt-1">Geld, das Sie unbemerkt wegschneiden, anstatt es als Gewinn einzubehalten.</p>
+                  <span className="text-xs md:text-[10px] uppercase tracking-wider text-zinc-550 font-extrabold block">Die traurige Realität über das Jahr</span>
+                  <p className="text-xl sm:text-2xl font-black text-rose-600 tracking-tight font-mono mt-1">Über 27.000 € Verlust</p>
+                  <p className="text-xs sm:text-sm text-zinc-500 font-medium mt-1">Geld, das Sie unbemerkt wegschneiden, anstatt es als Gewinn einzubehalten.</p>
                 </div>
               </div>
 
@@ -608,7 +608,7 @@ const StripeTechnicalSolution = () => {
                   )}
                   {f.id === 'dashboard' && (
                     <div className="pt-3 flex justify-between items-center">
-                      <span className="text-xs font-extrabold text-emerald-700">Abgewogenes Fleisch gesamt</span>
+                      <span className="text-xs font-extrabold text-zinc-750">Abgewogenes Fleisch gesamt</span>
                       <span className="text-xs font-mono font-black text-zinc-900">30.400g (Ziel: 30.000g)</span>
                     </div>
                   )}
@@ -861,14 +861,14 @@ const ProfitCalculator = ({ onOpenContact }: { onOpenContact: () => void }) => {
                 <div className="bg-gradient-to-br from-zinc-900 via-zinc-950 to-zinc-900 border border-zinc-850 p-6 rounded-2xl relative overflow-hidden shadow-lg">
                   <div className="absolute -top-12 -right-12 w-24 h-24 bg-zinc-800/10 rounded-full blur-xl" />
                   
-                  <span className="text-[10px] uppercase font-black text-emerald-400 tracking-widest block mb-1">RETTBARER GEWINN DURCH SEDOGRAMM / JAHR</span>
-                  <p className="text-4xl md:text-5xl font-mono font-black text-emerald-400 tracking-tight">
+                  <span className="text-xs md:text-[10px] uppercase font-black text-zinc-400 tracking-widest block mb-1">RETTBARER GEWINN DURCH SEDOGRAMM / JAHR</span>
+                  <p className="text-4xl md:text-5xl font-mono font-black text-emerald-500 tracking-tight">
                     {formatEuro(estimatedSavings)}
                   </p>
                   
                   {/* Gauge Animation representation */}
-                  <div className="mt-4">
-                    <div className="flex justify-between text-[9px] text-zinc-400 font-bold uppercase tracking-wider mb-1">
+                  <div className="mt-4 font-sans">
+                    <div className="flex justify-between text-xs md:text-[9px] text-zinc-400 font-bold uppercase tracking-wider mb-1">
                       <span>Marge optimiert</span>
                       <span>100% Abdeckung</span>
                     </div>
@@ -877,7 +877,7 @@ const ProfitCalculator = ({ onOpenContact }: { onOpenContact: () => void }) => {
                         initial={{ width: "0%" }}
                         animate={{ width: "90%" }}
                         transition={{ duration: 1 }}
-                        className="bg-gradient-to-r from-emerald-600 to-emerald-400 h-full rounded-full" 
+                        className="bg-gradient-to-r from-emerald-700 to-emerald-500 h-full rounded-full" 
                       />
                     </div>
                   </div>
